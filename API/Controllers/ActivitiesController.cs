@@ -1,5 +1,6 @@
 using Application.Activities;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -8,15 +9,15 @@ namespace API.Controllers
     {
 
         [HttpGet]
-        public async Task<IActionResult> GetActivities() 
+        public async Task<IActionResult> GetActivities()
         {
             return HandleResult(await Mediator.Send(new List.Query()));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetActivity(Guid id) 
+        public async Task<IActionResult> GetActivity(Guid id)
         {
-            return HandleResult(await Mediator.Send(new Details.Query{Id = id}));
+            return HandleResult(await Mediator.Send(new Details.Query { Id = id }));
         }
 
         [HttpPost]
