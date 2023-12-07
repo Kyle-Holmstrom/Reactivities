@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
 import { useEffect } from 'react';
+import ModalContainer from '../common/modals/ModalContainer';
 
 function App() {
   const location = useLocation();
@@ -24,9 +25,10 @@ function App() {
   
   return (
     <>
+      <ModalContainer />
+      <ToastContainer position='bottom-right' hideProgressBar theme='colored' />
       {location.pathname === '/' ? <HomePage /> : (
         <>
-        <ToastContainer position='bottom-right' hideProgressBar theme='colored' />
           <NavBar />
           <Container style={{marginTop: '7em'}}>
             <Outlet />
@@ -34,7 +36,7 @@ function App() {
         </>
       )}
     </>
-  )
+  );
 }
 
 export default observer(App);
