@@ -1,7 +1,7 @@
 namespace Application.Interfaces
 {
-    public class IUserAccessor
+    public interface IUserAccessor
     {
-        public string GetUsername();
+        string GetUsername();
     }
 }
