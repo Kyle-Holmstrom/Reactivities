@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240129195540_AddCancelledProperty")]
+    [Migration("20240321005006_AddCancelledProperty")]
     partial class AddCancelledProperty
     {
         /// <inheritdoc />

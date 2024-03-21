@@ -1,12 +1,23 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace Persistence.Migrations
 {
+    /// <inheritdoc />
     public partial class ActivityAttendee : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<bool>(
+                name: "IsCancelled",
+                table: "Activities",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: false);
+
             migrationBuilder.CreateTable(
                 name: "ActivityAttendees",
                 columns: table => new
@@ -38,10 +49,15 @@ namespace Persistence.Migrations
                 column: "ActivityId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "ActivityAttendees");
+
+            migrationBuilder.DropColumn(
+                name: "IsCancelled",
+                table: "Activities");
         }
     }
 }
